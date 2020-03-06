@@ -1,9 +1,10 @@
 import { getBrowserLocale } from "./utils";
 import { TOGGLE_LANGUAGE } from "./actions";
 import { LOCALE_EN, LOCALE_JA } from "./index";
+import { AllowedLocale } from "./types";
 
-const locale = (
-    state: string = getBrowserLocale(),
+const localeReducer = (
+    state: AllowedLocale = getBrowserLocale(),
     { type }: { type: string }
 ) => {
     switch (type) {
@@ -14,4 +15,4 @@ const locale = (
     }
 };
 
-export default locale;
+export default localeReducer;

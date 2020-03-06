@@ -1,15 +1,19 @@
 import { SET_REQUEST_ERROR, SET_REQUEST_LOADING } from "./actions";
-import { SetRequestErrorPayload, SetRequestLoadingPayload } from "./types";
+import {
+    ApiActions,
+    SetRequestErrorPayload,
+    SetRequestLoadingPayload,
+} from "./types";
 
 const apiRequestStatusReducer = (
-    state: { loading: {}; error: {} } = { loading: {}, error: {} },
+    state: { loading: Object; error: Object } = { loading: {}, error: {} },
     {
-            type,
-            payload,
-        }: {
-            type: string;
-            payload: SetRequestErrorPayload & SetRequestLoadingPayload;
-        }
+        type,
+        payload,
+    }: {
+        type: ApiActions;
+        payload: SetRequestErrorPayload | SetRequestLoadingPayload;
+    }
 ) => {
     switch (type) {
         case SET_REQUEST_LOADING:

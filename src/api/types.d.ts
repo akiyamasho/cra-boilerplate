@@ -1,13 +1,16 @@
-export type SetRequestLoadingPayload = {
-    actionType: string;
-    isLoading: boolean;
-};
+import { SET_REQUEST_LOADING, SET_REQUEST_ERROR } from "./actions";
 
-export type SetRequestErrorPayload = {
-    actionType: string;
-    errorLabelId: string;
-};
-
-//
-
+export type ApiActions = SET_REQUEST_LOADING | SET_REQUEST_ERROR;
 export type HttpMethod = "get" | "post";
+
+export interface SetRequestLoadingPayload {
+    actionType: ApiActions;
+    isLoading?: boolean;
+    errorLabelId?: never;
+}
+
+export interface SetRequestErrorPayload {
+    actionType: ApiActions;
+    errorLabelId?: string;
+    isLoading?: never;
+}

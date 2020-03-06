@@ -1,6 +1,10 @@
-import { SetRequestErrorPayload, SetRequestLoadingPayload } from "./types";
+import {
+    SetRequestErrorPayload,
+    SetRequestLoadingPayload,
+    ApiActions,
+} from "./types";
 
-export const SET_REQUEST_LOADING = "SET_REQUEST_LOADING";
+export const SET_REQUEST_LOADING: ApiActions = "SET_REQUEST_LOADING";
 export const dispatchSetRequestLoading = ({
     actionType,
     isLoading,
@@ -12,7 +16,7 @@ export const dispatchSetRequestLoading = ({
     },
 });
 
-export const SET_REQUEST_ERROR = "SET_REQUEST_ERROR";
+export const SET_REQUEST_ERROR: ApiActions = "SET_REQUEST_ERROR";
 export const dispatchSetRequestError = ({
     actionType,
     errorLabelId,

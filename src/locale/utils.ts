@@ -1,10 +1,11 @@
 import { DEFAULT_LOCALE, languagesList, LOCALE_STORAGE_KEY } from ".";
+import { AllowedLocale } from "./types";
 
-export const getBrowserLocale = () => {
-    const normalizeWithDefault = (str: string) => {
+export const getBrowserLocale = (): AllowedLocale => {
+    const normalizeWithDefault = (str: string): AllowedLocale => {
         const locale = str.toLowerCase().split(/[_-]+/)[0];
         if (locale in languagesList) {
-            return locale;
+            return locale as AllowedLocale;
         }
 
         return DEFAULT_LOCALE;
