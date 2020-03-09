@@ -1,0 +1,90 @@
+kind: pipeline
+name: default
+steps:
+  - name: docker-build-dev
+    image: plugins/docker
+    settings:
+      dockerfile: Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      tags:
+        - ${DRONE_COMMIT_BRANCH/\//-}-${DRONE_COMMIT_SHA}
+      repo: 444249980742.dkr.ecr.ap-northeast-1.amazonaws.com/enterprise-search/frontend
+      registry: 444249980742.dkr.ecr.ap-northeast-1.amazonaws.com
+      build_args_from_env: [GITHUB_TOKEN]
+    environment:
+      GITHUB_TOKEN:
+        from_secret: cogent_ci_github_token
+    when:
+      branch: [development]
+      event: [push]
+
+  - name: docker-build-staging
+    image: plugins/docker
+    when:
+      branch: [master]
+      event: [push]
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      tags:
+        - master-${DRONE_COMMIT_SHA:0:7}
+        - ${DRONE_BUILD_NUMBER}
+      repo: 444249980742.dkr.ecr.ap-northeast-1.amazonaws.com/enterprise-search/frontend
+      registry: 444249980742.dkr.ecr.ap-northeast-1.amazonaws.com
+      build_args_from_env: [GITHUB_TOKEN]
+    environment:
+      GITHUB_TOKEN:
+        from_secret: cogent_ci_github_token
+
+  - name: docker-build-release
+    image: plugins/docker
+    when:
+      event: [tag]
+      ref: [refs/tags/*.*.*]
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      tags:
+        - ${DRONE_TAG}
+        - master-${DRONE_COMMIT_SHA:0:7}
+        - ${DRONE_BUILD_NUMBER}
+        - latest # for testing purposes only
+      repo: 444249980742.dkr.ecr.ap-northeast-1.amazonaws.com/enterprise-search/frontend
+      registry: 444249980742.dkr.ecr.ap-northeast-1.amazonaws.com
+      build_args_from_env: [GITHUB_TOKEN]
+    environment:
+      GITHUB_TOKEN:
+        from_secret: cogent_ci_github_token
+
+  - name: test
+    image: python:3.6.9-slim
+    commands:
+      - apt-get update && apt-get install -y --no-install-recommends git build-essential
+      - pip install --upgrade pip tox
+      - tox
+
+---
+kind: secret
+name: cogent_ci_github_token
+get:
+  path: drone-internal-cogent-cogent-ci
+  name: github-token
+---
+kind: secret
+name: docker_username
+get:
+  path: drone-internal-cogent-docker
+  name: username
+---
+kind: secret
+name: docker_password
+get:
+  path: drone-internal-cogent-docker
+  name: password
