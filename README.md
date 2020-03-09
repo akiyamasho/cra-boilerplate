@@ -4,3 +4,7 @@
 
 1. `npm start`
 2. Open http://localhost:5000
+
+### Notes
+
+Current UI is only for Deloitte. AGC theme and feature flags will be added later.
