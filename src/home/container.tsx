@@ -27,6 +27,7 @@ const RadioSelectionWrapper = styled(MidAlignedWrapper)`
     padding: 0 2em;
 `;
 
+const FIELD_NAME_SEARCH_ENGINE = "search_engine";
 const RADIO_NAME_QUICKTHOUGHT = "quickthought";
 const RADIO_NAME_ELASTIC = "elastic_search";
 
@@ -42,9 +43,16 @@ const Home = ({ toggleLanguage }: { toggleLanguage: Function }) => {
                 <MidAlignedWrapper>
                     <RadioSelectionWrapper>
                         <RadioBtn
-                            name={RADIO_NAME_QUICKTHOUGHT}
+                            name={FIELD_NAME_SEARCH_ENGINE}
                             id={RADIO_NAME_QUICKTHOUGHT}
                             type="radio"
+                            checked={
+                                searchEngineOption === RADIO_NAME_QUICKTHOUGHT
+                            }
+                            onClick={() => {
+                                setSearchEngineOption(RADIO_NAME_QUICKTHOUGHT);
+                            }}
+                            readOnly
                         />
                         <RadioLabel htmlFor={RADIO_NAME_QUICKTHOUGHT}>
                             QuickThought
@@ -52,9 +60,14 @@ const Home = ({ toggleLanguage }: { toggleLanguage: Function }) => {
                     </RadioSelectionWrapper>
                     <RadioSelectionWrapper>
                         <RadioBtn
-                            name={RADIO_NAME_ELASTIC}
+                            name={FIELD_NAME_SEARCH_ENGINE}
                             id={RADIO_NAME_ELASTIC}
                             type="radio"
+                            checked={searchEngineOption === RADIO_NAME_ELASTIC}
+                            onClick={() => {
+                                setSearchEngineOption(RADIO_NAME_ELASTIC);
+                            }}
+                            readOnly
                         />
                         <RadioLabel htmlFor={RADIO_NAME_ELASTIC}>
                             Elastic Search
