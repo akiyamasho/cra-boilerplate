@@ -5,10 +5,12 @@ import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
 
 import Footer from "../init/ui/custom/Footer";
+import SearchEngineSelection, {
+    RADIO_NAME_ELASTIC,
+} from "../init/ui/custom/SearchEngineSelection";
 import mainLogo from "../img/logo.png";
 
-import { MainContainer, MidAlignedWrapper } from "../init/ui/containers";
-import { RadioBtn, RadioLabel } from "../init/ui/form";
+import { MainContainer } from "../init/ui/containers";
 import { AllowedLocale } from "../locale/types";
 import { dispatchToggleLanguage } from "../locale/actions";
 import SearchInput from "../init/ui/custom/SearchInput";
@@ -28,17 +30,9 @@ const Logo = styled.img`
     margin-bottom: 1em;
 `;
 
-const RadioSelectionWrapper = styled(MidAlignedWrapper)`
-    padding: 0 2em;
-`;
-
 const BtnContainer = styled.div`
     margin-top: 1em;
 `;
-
-const FIELD_NAME_SEARCH_ENGINE = "search_engine";
-const RADIO_NAME_QUICKTHOUGHT = "quickthought";
-const RADIO_NAME_ELASTIC = "elastic_search";
 
 const Home = ({ toggleLanguage }: { toggleLanguage: Function }) => {
     const [searchEngineOption, setSearchEngineOption] = useState(
@@ -51,40 +45,10 @@ const Home = ({ toggleLanguage }: { toggleLanguage: Function }) => {
             <ContentWrapper>
                 <Logo src={mainLogo} alt="logo" />
                 <SearchInput value={searchInput} onChange={setSearchInput} />
-                <MidAlignedWrapper>
-                    <RadioSelectionWrapper>
-                        <RadioBtn
-                            name={FIELD_NAME_SEARCH_ENGINE}
-                            id={RADIO_NAME_QUICKTHOUGHT}
-                            type="radio"
-                            checked={
-                                searchEngineOption === RADIO_NAME_QUICKTHOUGHT
-                            }
-                            onClick={() => {
-                                setSearchEngineOption(RADIO_NAME_QUICKTHOUGHT);
-                            }}
-                            readOnly
-                        />
-                        <RadioLabel htmlFor={RADIO_NAME_QUICKTHOUGHT}>
-                            QuickThought
-                        </RadioLabel>
-                    </RadioSelectionWrapper>
-                    <RadioSelectionWrapper>
-                        <RadioBtn
-                            name={FIELD_NAME_SEARCH_ENGINE}
-                            id={RADIO_NAME_ELASTIC}
-                            type="radio"
-                            checked={searchEngineOption === RADIO_NAME_ELASTIC}
-                            onClick={() => {
-                                setSearchEngineOption(RADIO_NAME_ELASTIC);
-                            }}
-                            readOnly
-                        />
-                        <RadioLabel htmlFor={RADIO_NAME_ELASTIC}>
-                            Elastic Search
-                        </RadioLabel>
-                    </RadioSelectionWrapper>
-                </MidAlignedWrapper>
+                <SearchEngineSelection
+                    searchEngineOption={searchEngineOption}
+                    setSearchEngineOption={setSearchEngineOption}
+                />
                 <BtnContainer>
                     <DefaultBtn type="submit">
                         <FormattedMessage id="search" />
