@@ -56,8 +56,9 @@ const Result = ({
 }) => {
     return (
         <Container>
-            <FolderPath>{path}</FolderPath>
-            <FileName>{path}</FileName>
+            <FolderPath>{path.replace(/\//g, " > ")}</FolderPath>
+            <FileName>{path!.split("/").pop()}</FileName>
+
             <LastUpdated>
                 <FormattedMessage id="lastUpdatedDate" />
                 {lastUpdatedDate}
