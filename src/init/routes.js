@@ -1,4 +1,5 @@
-import Home from "../home/container";
+// import Home from "../home/container";
+import SearchResults from "../search-results/container";
 
 export const HOME_PATH = "home";
 
@@ -6,11 +7,11 @@ export const mainRoutes = [
     {
         path: `/${HOME_PATH}`,
         exact: false,
-        component: Home,
+        component: SearchResults,
     },
     {
         path: "/",
         exact: false,
-        component: Home,
+        component: SearchResults,
     },
 ];
