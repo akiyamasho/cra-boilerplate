@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { hintTextColour } from "../../init/ui/colours";
+import { hintTextColour } from "../colours";
+
+export const SEARCH_INPUT_WIDTH_PX = 600;
 
 const Container = styled.div`
     display: flex;
-    width: 600px;
+    width: ${SEARCH_INPUT_WIDTH_PX}px;
     padding-right: 15px;
     margin-bottom: 15px;
     border-radius: 30px;

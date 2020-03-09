@@ -3,9 +3,9 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import { FormattedMessage } from "react-intl";
-import { TextBtn } from "../../init/ui/buttons";
+import { TextBtn } from "../buttons";
 
-import cogentLogo from "../../img/cogent-logo.svg";
+import PoweredByCogent from "./PoweredByCogent";
 
 const FooterContainer = styled.div`
     display: flex;
@@ -17,15 +17,6 @@ const FooterSection = styled.div`
     display: flex;
     align-items: center;
     padding: 1em 2em;
-`;
-
-const PoweredBy = styled.span`
-    font-size: 0.75em;
-`;
-
-const CogentLogo = styled.img`
-    width: 120px;
-    margin: 0 5px;
 `;
 
 const Footer = ({ toggleLanguage }: { toggleLanguage: Function }) => (
@@ -40,14 +31,7 @@ const Footer = ({ toggleLanguage }: { toggleLanguage: Function }) => (
             </TextBtn>
         </FooterSection>
         <FooterSection>
-            <PoweredBy>Powered By&nbsp;</PoweredBy>
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.cogent.co.jp/"
-            >
-                <CogentLogo src={cogentLogo} alt="Cogent Labs" />
-            </a>
+            <PoweredByCogent />
         </FooterSection>
     </FooterContainer>
 );
