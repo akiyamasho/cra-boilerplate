@@ -1,6 +1,4 @@
-import { SET_REQUEST_LOADING, SET_REQUEST_ERROR } from "./actions";
-
-export type ApiActions = SET_REQUEST_LOADING | SET_REQUEST_ERROR;
+export type ApiActions = "SET_REQUEST_LOADING" | "SET_REQUEST_ERROR";
 export type HttpMethod = "get" | "post";
 
 export interface SetRequestLoadingPayload {

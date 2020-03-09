@@ -6,7 +6,7 @@ import mainLogo from "../img/logo.png";
 import { MainContainer, MidAlignedWrapper } from "../init/ui/containers";
 import { hintTextColour } from "../init/ui/colours";
 import SearchEngineSelection, {
-    RADIO_NAME_ELASTIC,
+    ENGINE_OPT_ELASTIC_SEARCH,
 } from "../init/ui/custom/SearchEngineSelection";
 import PoweredByCogent from "../init/ui/custom/PoweredByCogent";
 import SearchInput from "../init/ui/custom/SearchInput";
@@ -46,7 +46,7 @@ const Logo = styled.img`
 
 const SearchResults = ({ results }: { results: Object[] }) => {
     const [searchEngineOption, setSearchEngineOption] = useState(
-        RADIO_NAME_ELASTIC
+        ENGINE_OPT_ELASTIC_SEARCH
     );
     const [searchInput, setSearchInput] = useState("");
 

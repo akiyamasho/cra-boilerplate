@@ -5,8 +5,7 @@ import {
 } from "./types";
 
 export const SET_REQUEST_LOADING: ApiActions = "SET_REQUEST_LOADING";
-export const dispatchSetRequestLoading = ({
-    actionType,
+export const dispatchSetRequestLoading = ({ actionType,
     isLoading,
 }: SetRequestLoadingPayload) => ({
     type: SET_REQUEST_LOADING,

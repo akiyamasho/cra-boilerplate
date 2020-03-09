@@ -6,7 +6,7 @@ import { FormattedMessage } from "react-intl";
 
 import Footer from "../init/ui/custom/Footer";
 import SearchEngineSelection, {
-    RADIO_NAME_ELASTIC,
+    ENGINE_OPT_ELASTIC_SEARCH,
 } from "../init/ui/custom/SearchEngineSelection";
 import mainLogo from "../img/logo.png";
 
@@ -36,7 +36,7 @@ const BtnContainer = styled.div`
 
 const Home = ({ toggleLanguage }: { toggleLanguage: Function }) => {
     const [searchEngineOption, setSearchEngineOption] = useState(
-        RADIO_NAME_ELASTIC
+        ENGINE_OPT_ELASTIC_SEARCH
     );
     const [searchInput, setSearchInput] = useState("");
 
