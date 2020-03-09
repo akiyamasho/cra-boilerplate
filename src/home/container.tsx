@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
 import { connect } from "react-redux";
+import { FormattedMessage } from "react-intl";
 
 import Footer from "./components/Footer";
 import mainLogo from "../img/logo.png";
@@ -10,6 +12,7 @@ import { RadioBtn, RadioLabel } from "../init/ui/form";
 import { AllowedLocale } from "../locale/types";
 import { dispatchToggleLanguage } from "../locale/actions";
 import SearchInput from "./components/SearchInput";
+import { DefaultBtn } from "../init/ui/buttons";
 
 const ContentWrapper = styled.form`
     flex-grow: 1;
@@ -27,6 +30,10 @@ const Logo = styled.img`
 
 const RadioSelectionWrapper = styled(MidAlignedWrapper)`
     padding: 0 2em;
+`;
+
+const BtnContainer = styled.div`
+    margin-top: 1em;
 `;
 
 const FIELD_NAME_SEARCH_ENGINE = "search_engine";
@@ -78,8 +85,12 @@ const Home = ({ toggleLanguage }: { toggleLanguage: Function }) => {
                         </RadioLabel>
                     </RadioSelectionWrapper>
                 </MidAlignedWrapper>
+                <BtnContainer>
+                    <DefaultBtn type="submit">
+                        <FormattedMessage id="search" />
+                    </DefaultBtn>
+                </BtnContainer>
             </ContentWrapper>
-
             <Footer toggleLanguage={toggleLanguage} />
         </MainContainer>
     );

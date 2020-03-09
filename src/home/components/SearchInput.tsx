@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { hintTextColour, secondaryTextColour } from "../../init/ui/colours";
+import { hintTextColour } from "../../init/ui/colours";
 
 const Container = styled.div`
     display: flex;
-    width: 50vw;
+    width: 600px;
+    padding-right: 15px;
     margin-bottom: 15px;
     border-radius: 30px;
     border: 1px solid ${hintTextColour};
@@ -23,6 +24,7 @@ const Icon = styled.i`
 `;
 
 const Input = styled.input`
+    width: inherit;
     padding: 10px;
     outline: none;
     border: 0;

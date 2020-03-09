@@ -26,6 +26,8 @@ export const DefaultBtn = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 90px;
+    height: 30px;
 
     &:disabled {
         background: ${buttonBgDisabledColour};
