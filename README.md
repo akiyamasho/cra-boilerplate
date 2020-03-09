@@ -1,18 +1,6 @@
-# create-react-app boilerplate
-
-### Common Libraries
-
--   `styled-components`
--   `prop-types`
--   `react-router`
--   `react-intl`
--   `axios`
-
--   `react-redux`
--   `redux`
-
--   `jest-styled-components`
+# Enterprise Search Frontend (DTC & AGC)
 
 ### Local Deployment
 
-`npm start`
+1. `npm start`
+2. Open http://localhost:5000
