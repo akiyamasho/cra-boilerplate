@@ -3,9 +3,9 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import { FormattedMessage } from "react-intl";
-import { TextBtn } from "../../init/ui/buttons";
+import { TextBtn } from "../buttons";
 
-import cogentLogo from "../../img/cogent-logo.svg";
+import cogentLogo from "../../../img/cogent-logo.svg";
 
 const FooterContainer = styled.div`
     display: flex;

@@ -4,14 +4,14 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
 
-import Footer from "./components/Footer";
+import Footer from "../init/ui/custom/Footer";
 import mainLogo from "../img/logo.png";
 
 import { MainContainer, MidAlignedWrapper } from "../init/ui/containers";
 import { RadioBtn, RadioLabel } from "../init/ui/form";
 import { AllowedLocale } from "../locale/types";
 import { dispatchToggleLanguage } from "../locale/actions";
-import SearchInput from "./components/SearchInput";
+import SearchInput from "../init/ui/custom/SearchInput";
 import { DefaultBtn } from "../init/ui/buttons";
 
 const ContentWrapper = styled.form`
@@ -49,7 +49,7 @@ const Home = ({ toggleLanguage }: { toggleLanguage: Function }) => {
     return (
         <MainContainer>
             <ContentWrapper>
-                <Logo src={mainLogo} />
+                <Logo src={mainLogo} alt="logo" />
                 <SearchInput value={searchInput} onChange={setSearchInput} />
                 <MidAlignedWrapper>
                     <RadioSelectionWrapper>

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { hintTextColour } from "../../init/ui/colours";
+import { hintTextColour } from "../colours";
 
 const Container = styled.div`
     display: flex;
