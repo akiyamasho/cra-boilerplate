@@ -13,11 +13,11 @@ export const dispatchSetSearchQuery = ({ query }: SearchQueryPayload) => ({
     },
 });
 
-export const SET_SEARCH_ENGINE: SearchActions = "SET_SEARCH_ENGINE";
-export const dispatchSetSearchEngine = ({
+export const SET_SEARCH_ENGINE_OPTION: SearchActions = "SET_SEARCH_ENGINE_OPTION";
+export const dispatchSetSearchEngineOption = ({
     searchEngineOption,
 }: SearchEngineOptionPayload) => ({
-    type: SET_SEARCH_ENGINE,
+    type: SET_SEARCH_ENGINE_OPTION,
     payload: {
         searchEngineOption,
     },

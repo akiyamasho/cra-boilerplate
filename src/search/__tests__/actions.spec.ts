@@ -1,9 +1,9 @@
 import {
     dispatchSetSearchQuery,
-    dispatchSetSearchEngine,
+    dispatchSetSearchEngineOption,
     dispatchPostSearch,
     SET_SEARCH_QUERY,
-    SET_SEARCH_ENGINE,
+    SET_SEARCH_ENGINE_OPTION,
     POST_SEARCH,
 } from "../actions";
 import { ENGINE_OPT_ELASTIC_SEARCH } from "../../init/ui/custom/SearchEngineSelection";
@@ -21,9 +21,9 @@ describe("API Actions", () => {
         });
     });
 
-    it(`should return action with type ${SET_SEARCH_ENGINE} and payload with passed "searchEngineOption"`, function() {
-        expect(dispatchSetSearchEngine({ searchEngineOption })).toEqual({
-            type: SET_SEARCH_ENGINE,
+    it(`should return action with type ${SET_SEARCH_ENGINE_OPTION} and payload with passed "searchEngineOption"`, function() {
+        expect(dispatchSetSearchEngineOption({ searchEngineOption })).toEqual({
+            type: SET_SEARCH_ENGINE_OPTION,
             payload: {
                 searchEngineOption,
             },
@@ -32,7 +32,7 @@ describe("API Actions", () => {
 
     it(`should return action with type ${POST_SEARCH} and payload with passed "query" and "searchEngineOption"`, function() {
         expect(dispatchPostSearch({ query, searchEngineOption })).toEqual({
-            type: SET_SEARCH_ENGINE,
+            type: POST_SEARCH,
             payload: {
                 query,
                 searchEngineOption,

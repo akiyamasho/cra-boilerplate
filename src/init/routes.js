@@ -1,4 +1,4 @@
-import Home from "../home/container";
+import Home from "../search/container";
 import SearchResults from "../search-results/container";
 
 export const HOME_PATH = "home";
