@@ -6,9 +6,7 @@ import {
     buttonTextColour,
     buttonTextDisabledColour,
     hintTextColour,
-    mainTextColour,
     secondaryTextColour,
-    themeColour,
 } from "./colours";
 
 export const DefaultBtn = styled.button`
