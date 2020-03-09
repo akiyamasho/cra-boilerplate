@@ -6,3 +6,7 @@ export const hintTextColour = "#888888";
 
 export const buttonBgColour = themeColour;
 export const buttonBgHoverColour = "#92ca28";
+export const buttonBgDisabledColour = "#cee4a5";
+
+export const buttonTextColour = "#ffffff";
+export const buttonTextDisabledColour = "#cccccc";
