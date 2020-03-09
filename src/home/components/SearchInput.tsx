@@ -1,30 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { hintTextColour, secondaryTextColour } from "../colours";
+import { hintTextColour, secondaryTextColour } from "../../init/ui/colours";
 
 const Container = styled.div`
     display: flex;
-    width: 100%;
+    width: 50vw;
     margin-bottom: 15px;
-    border-radius: 10px;
-    border: 1px solid ${secondaryTextColour};
+    border-radius: 30px;
+    border: 1px solid ${hintTextColour};
 `;
 
 const Icon = styled.i`
-    padding: 10px;
-    color: ${secondaryTextColour};
-    min-width: 50px;
+    margin: 7.5px;
+    color: ${hintTextColour};
+    min-width: 35px;
     text-align: center;
     border-right: 1px solid ${hintTextColour};
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const Input = styled.input`
-    width: 100%;
     padding: 10px;
     outline: none;
     border: 0;
     transition: 0.1s ease-in;
+    font-size: 1.25em;
 `;
 
 const SearchInput = ({
@@ -35,13 +38,14 @@ const SearchInput = ({
     onChange: Function;
 }) => (
     <Container>
-        <Icon className="material-icons" />
+        <Icon className="material-icons">search</Icon>
         <Input
             type="text"
             onChange={evt => {
                 onChange(evt.target.value);
             }}
             value={value}
+            autoFocus
         />
     </Container>
 );

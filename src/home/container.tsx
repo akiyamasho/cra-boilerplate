@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 import mainLogo from "../img/logo.png";
 
 import { MainContainer, MidAlignedWrapper } from "../init/ui/containers";
 import { RadioBtn, RadioLabel } from "../init/ui/form";
 import { AllowedLocale } from "../locale/types";
 import { dispatchToggleLanguage } from "../locale/actions";
+import SearchInput from "./components/SearchInput";
 
 const ContentWrapper = styled.form`
     flex-grow: 1;
@@ -19,8 +20,9 @@ const ContentWrapper = styled.form`
 `;
 
 const Logo = styled.img`
-    height: 200px;
+    height: 135px;
     width: auto;
+    margin-bottom: 1em;
 `;
 
 const RadioSelectionWrapper = styled(MidAlignedWrapper)`
@@ -35,11 +37,13 @@ const Home = ({ toggleLanguage }: { toggleLanguage: Function }) => {
     const [searchEngineOption, setSearchEngineOption] = useState(
         RADIO_NAME_ELASTIC
     );
+    const [searchInput, setSearchInput] = useState("");
 
     return (
         <MainContainer>
             <ContentWrapper>
                 <Logo src={mainLogo} />
+                <SearchInput value={searchInput} onChange={setSearchInput} />
                 <MidAlignedWrapper>
                     <RadioSelectionWrapper>
                         <RadioBtn

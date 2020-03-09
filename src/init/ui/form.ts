@@ -32,4 +32,5 @@ export const RadioLabel = styled.label`
     margin-left: 5px;
     color ${secondaryTextColour};
     cursor: pointer;
+    user-select: none;
 `;
