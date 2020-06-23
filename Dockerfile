@@ -22,7 +22,7 @@ RUN npm run build && \
 
 # ------ Bundle run image --------
 
-FROM node:10.15-alpine
+FROM node:13-alpine
 
 WORKDIR /opt/app
 
