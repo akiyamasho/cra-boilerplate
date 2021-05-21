@@ -15,4 +15,4 @@
 
 ### Local Deployment
 
-`npm start`
+`yarn start`
