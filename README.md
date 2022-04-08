@@ -1,5 +1,7 @@
 # create-react-app boilerplate
 
+This template is for an old version of React (17) and will no longer be maintained.
+
 ### Common Libraries
 
 -   `styled-components`
